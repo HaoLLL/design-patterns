@@ -70,51 +70,51 @@ class ConcreteShapeFactory2 implements ShapeFactory2{
 interface Color {
     void fill();
 }
-class Red implements Color {
-    @Override
-    public void fill() {
-        System.out.println("red fill");
-    }
-}
-class Green implements Color {
-    @Override
-    public void fill() {
-        System.out.println("green fill");
-    }
-}
-abstract class AbstractFactory {
-//    两种产品
-    public abstract Color getColor(String color);
-    public abstract Shape getShape(String shape) ;
-}
-
-class ShapeFactory3 extends AbstractFactory {
-    @Override
-    public Shape getShape(String shapeType){
-        if(shapeType.equalsIgnoreCase("CIRCLE")){
-            return new Circle();
-        }else{
-            return new Rec();
-        }
-    }
-    @Override
-    public Color getColor(String color) {
-        return null;
-    }
-}
-public class ColorFactory3 extends AbstractFactory {
-
-    @Override
-    public Shape getShape(String shapeType){
-        return null;
-    }
-
-    @Override
-    public Color getColor(String color) {
-        if(color.equalsIgnoreCase("RED")){
-            return new Red();
-        } else {
-            return new Green();
-        }
-    }
-}
+//class Red implements Color {
+//    @Override
+//    public void fill() {
+//        System.out.println("red fill");
+//    }
+//}
+//class Green implements Color {
+//    @Override
+//    public void fill() {
+//        System.out.println("green fill");
+//    }
+//}
+//abstract class AbstractFactory {
+////    两种产品
+//    public abstract Color getColor(String color);
+//    public abstract Shape getShape(String shape) ;
+//}
+//
+//class ShapeFactory3 extends AbstractFactory {
+//    @Override
+//    public Shape getShape(String shapeType){
+//        if(shapeType.equalsIgnoreCase("CIRCLE")){
+//            return new Circle();
+//        }else{
+//            return new Rec();
+//        }
+//    }
+//    @Override
+//    public Color getColor(String color) {
+//        return null;
+//    }
+//}
+//public class ColorFactory3 extends AbstractFactory {
+//
+//    @Override
+//    public Shape getShape(String shapeType){
+//        return null;
+//    }
+//
+//    @Override
+//    public Color getColor(String color) {
+//        if(color.equalsIgnoreCase("RED")){
+//            return new Red();
+//        } else {
+//            return new Green();
+//        }
+//    }
+//}
