@@ -1,35 +1,66 @@
 package com.company.command;
 
-// command is an object
-public interface Command {
-    public void execute();
-}
-class Light{
-    public void on(){
-        System.out.println("light on ");
-    }
-}
-class LightOnCommand implements Command{
-    Light light;
-    public LightOnCommand(Light light){
-        this.light = light;
-    }
-    public void execute(){
-        light.on();
-    }
-}
-class SimpleRemoteControl{
-//    command slot in the controller
-    Command slot;
-    public SimpleRemoteControl(){
+import java.util.ArrayList;
+import java.util.List;
+//command pluggable adapter visitor
+//interceptor service locator
+// replace dispatcher with commands
 
-    }
-    public void setCommand(Command command){
-        slot = command;
-    }
-    public void buttonWasPressed(){
-        slot.execute();
-    }
-}
+//1. order; 2. executor(orderList; addOrder; executeOrder)
+public class Command {
+    public static void main(String[] args) {
+//
 
 
+    }
+}
+class Executor{
+    private List<Order> orderList = new ArrayList<Order>();
+
+    public void addOrder(Order order){
+        orderList.add(order);
+    }
+
+    public void executeOrders(){
+        for (Order order : orderList) {
+            order.execute();
+        }
+        orderList.clear();
+    }
+}
+interface Order{
+    void execute();
+}
+
+class Stock {
+    public void buy(){
+        System.out.println("stock buy");
+    }
+    public void sell(){
+        System.out.println("stock sell");
+    }
+}
+
+class BuyStock implements Order{
+//    private Stock stock;
+
+    public BuyStock(){
+//        this.stock = abcStock;
+    }
+
+    public void execute() {
+        System.out.println("buy stock");
+    }
+}
+
+class SellStock implements Order{
+//    private Stock stock;
+
+    public SellStock(){
+//        this.stock = abcStock;
+    }
+
+    public void execute() {
+        System.out.println("sell stock");
+    }
+}

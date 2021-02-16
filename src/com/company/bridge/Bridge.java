@@ -4,14 +4,25 @@ package com.company.bridge;
 public class Bridge {
     public static void main(String[] args) {
         DrawAPI red = new RedCircle();
+        S s = new S(red);
+        s.execute();
 
+    }
+}
+class S{
+    DrawAPI api;
+    public S(DrawAPI api){
+        this.api = api;
+    }
+    public void execute(){
+        api.drawCircle();
     }
 }
 
 // 1. 桥梁 展开成好几种实现类
-// 2. 构造或set中设置实现类 方法中执行桥梁方法
+// 2. 构造或set中注入实现类 具体方法中执行桥梁方法
 interface DrawAPI{
-    public void drawCircle();
+    void drawCircle();
 }
 
 
