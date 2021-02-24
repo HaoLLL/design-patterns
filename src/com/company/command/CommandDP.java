@@ -7,6 +7,8 @@ import java.util.List;
 // replace dispatcher with commands
 
 //1. order; 2. executor(orderList; addOrder; executeOrder)
+
+//1. encapsulate a  request
 public class Command {
     public static void main(String[] args) {
 //
@@ -14,6 +16,10 @@ public class Command {
 
     }
 }
+//Command(give breakfast order)
+//Concrete Command
+//Receiver(cooker)
+//Invoker(waiter)
 class Executor{
     private List<Order> orderList = new ArrayList<Order>();
 
@@ -31,7 +37,7 @@ class Executor{
 interface Order{
     void execute();
 }
-
+//receiver
 class Stock {
     public void buy(){
         System.out.println("stock buy");
